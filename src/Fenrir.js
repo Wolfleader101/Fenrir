@@ -31,6 +31,18 @@ class FenrirTitle extends HTMLElement {
         if(this.parentElement.tagName.toLowerCase() != "fenrir-app")
             return alert(`${this.tagName.toLowerCase()} must be in <fenrir-app></fenrir-app>`);
     }
+
+      static get observedAttributes() {
+        return ['color', 'size'];
+      }
+
+      get color() {
+        return this.hasAttribute('color')
+      }
+
+      set color(newColor) {
+        return this.setAttribute('color', newColor)
+      }
 }
 customElements.define('fenrir-app', FenrirApp);
 customElements.define('fenrir-title', FenrirTitle);
