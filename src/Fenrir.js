@@ -1,6 +1,7 @@
 class FenrirApp extends HTMLElement {
     constructor() {
         super();
+        
     }
     connectedCallback() {
         let css = document.createElement("link");
@@ -14,13 +15,21 @@ class FenrirApp extends HTMLElement {
 class FenrirTitle extends HTMLElement {
     constructor() {
         super();
-
+        let shadowRoot = this.attachShadow({mode: 'open'})
+        shadowRoot.innerHTML = `
+        <style>
+        h1{
+          font-size: 3em;
+          font-weight: bold; 
+          font-family: Montserrat, "sans-serif";
+        }
+        </style>
+        <h1>${this.textContent}</h1>
+        `
+    }
+    connectedCallback() {
         if(this.parentElement.tagName.toLowerCase() != "fenrir-app")
             return alert(`${this.tagName.toLowerCase()} must be in <fenrir-app></fenrir-app>`);
-            
-        this.style.fontSize = "4rem";
-        this.style.fontWeight = "bold";
-        this.style.fontFamily = "Montserrat", "sans-serif";
     }
 }
 customElements.define('fenrir-app', FenrirApp);
