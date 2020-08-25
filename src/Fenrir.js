@@ -62,6 +62,7 @@ class FenrirTitle extends HTMLElement {
           this.style.color = "#2945e3"
           break;
         default:
+          this.style.color = newval;
           break;
       }
     } else if (name == "size") {
@@ -97,5 +98,6 @@ class FenrirTitle extends HTMLElement {
 
   }
 }
+
 customElements.define('fenrir-app', FenrirApp);
 customElements.define('fenrir-title', FenrirTitle);
