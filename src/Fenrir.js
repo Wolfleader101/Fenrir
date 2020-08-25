@@ -27,14 +27,6 @@ class FenrirTitle extends HTMLElement {
         </style>
         <h1>${this.textContent}</h1>
         `
-
-    const sizeStruct = {
-      "extra-small": "0.5em",
-      "small": "1em",
-      "default": "2em",
-      "large": "3em",
-      "extra-large": "4em"
-    }
   }
   connectedCallback() {
     if (this.parentElement.tagName.toLowerCase() != "fenrir-app")
@@ -73,8 +65,15 @@ class FenrirTitle extends HTMLElement {
           break;
       }
     } else if (name == "size") {
+      let sizeStruct = {
+        "extra-small": "0.5em",
+        "small": "1em",
+        "default": "2em",
+        "large": "3em",
+        "extra-large": "4em"
+      }
       switch (newval) {
-        case 'extra=small': 
+        case 'extra-small': 
         this.style.fontSize = sizeStruct["extra-small"];
         break;
         case 'small': 
